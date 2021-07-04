@@ -1,5 +1,8 @@
-
+name = "ReadCoverageDistributions"
+uuid="c76e7e64-dca4-11eb-0ff5-1d6d625192a2"
+authors = ["Peter Arndt","Dinesh Adhithya"]
 version = "0.1.1"
+
 [deps]
 LsqFit = "2fda8390-95c7-5789-9bda-21331edee243"
 NBInclude = "0db19996-df87-5ea3-a455-e3a50d440464"
