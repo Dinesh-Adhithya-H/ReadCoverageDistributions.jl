@@ -12,3 +12,8 @@ PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 
 [compat]
 julia = "1.6.0"
+LsqFit = "0.12.1"
+NBInclude = "2.2.0"
+OffsetArrays = "1.9.0"
+ProgressMeter = "1.6.2"
+PyPlot = "2.9.0"
