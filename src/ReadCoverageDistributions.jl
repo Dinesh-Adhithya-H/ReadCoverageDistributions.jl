@@ -4,6 +4,8 @@ using ProgressMeter
 using PyPlot
 using LsqFit
 
+export simulate,plot_simulation
+
 Base.@kwdef struct Para
     genome_length::Int = 10_000_000
     read_length::Int = 100
