@@ -1,6 +1,6 @@
 # ReadCoverageDistributions.jl
 
-The following package carries out monte carlo simulations to understand read coverage distributions.
+The following package carries out random simulations to understand read coverage distributions.
 
 To use the package use the following commands
 
