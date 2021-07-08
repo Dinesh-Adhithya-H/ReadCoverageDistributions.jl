@@ -4,8 +4,8 @@ The following package carries out monte carlo simulations to understand read cov
 
 To use the package use the following commands
 
-'''julia
+```julia
 import Pkg
 Pkg.add("ReadCoverageDistributions")
 using ReadCoverageDistributions
-'''
+```
