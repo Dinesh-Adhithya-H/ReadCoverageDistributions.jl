@@ -3,7 +3,7 @@ using OffsetArrays
 using ProgressMeter
 using PyPlot
 using LsqFit
-include("ReadCoverageDistributions.jl")
+include("HistogramReadCoverages.jl")
 
 export simulate_and_get_coveage_hist_2,simulate_oceansislands,plot_oceansislands_simulation,no_islands_vs_no_reads_simulation,no_oceans_vs_no_reads_simulation,avg_length_oceans_vs_no_reads_simulation,avg_length_islands_vs_no_reads_simulation,simulate_and_get_coveage_hist_3,no_reads_vs_no_islands
 
