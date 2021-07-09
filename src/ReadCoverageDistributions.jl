@@ -4,7 +4,7 @@ using ProgressMeter
 using PyPlot
 using LsqFit
 
-export simulate,plot_simulation
+export simulate_readcoverage,Para,increment!,hist_add!,vec_hist_add!,simulate_and_get_coveage_hist,plot_readcoverage_simulation
 
 Base.@kwdef struct Para
     genome_length::Int = 10_000_000
@@ -70,14 +70,14 @@ function simulate_and_get_coveage_hist(p::Para)
     hists
 end
 
-function simulate(n,genome_length,read_length,no_reads)
+function simulate_readcoverage(n,genome_length,read_length,no_reads)
     paras = fill(Para(genome_length = genome_length,read_length=read_length,read_number=no_reads), n);
     res = @showprogress map(simulate_and_get_coveage_hist, paras);
     h = reduce(vec_hist_add!, res) ./ n
     return h
 end
 
-function plot_simulation(h,coverage,n=100)
+function plot_readcoverage_simulation(h,coverage,n=100)
     fig, ax = subplots()
     ax.scatter(1:length(h[coverage]),h[coverage])
     #ax.set_xlim(0,1500)
