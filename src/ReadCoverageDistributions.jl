@@ -1,4 +1,3 @@
-module ReadCoverageDistributions
 using OffsetArrays
 using ProgressMeter
 using PyPlot
@@ -85,8 +84,3 @@ function plot_readcoverage_simulation(h,coverage,n=100)
     title(string(coverage)*" Coverages")
     ax.set_yscale("log")
 end
-print("notebook successfully imported")
-
-end
-
-
