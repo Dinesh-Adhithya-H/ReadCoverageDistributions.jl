@@ -1,4 +1,3 @@
-module OceanIslandDistributions
 using OffsetArrays
 using ProgressMeter
 using PyPlot
@@ -148,7 +147,4 @@ function no_reads_vs_no_islands(n,genome_length,read_length,read_number)
     a=a./n;
     return a
 end
-
-end
-
 
