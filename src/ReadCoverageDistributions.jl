@@ -1,3 +1,5 @@
+export ReadCoverageDistributions
+
 module ReadCoverageDistributions
 
 include("HistogramReadCoverages.jl")
