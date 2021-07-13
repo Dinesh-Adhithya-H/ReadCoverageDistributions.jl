@@ -1,4 +1,4 @@
-export simulate_readcoverage,Para,increment!,hist_add!,vec_hist_add!,simulate_and_get_coveage_hist,plot_readcoverage_simulation
+#export simulate_readcoverage,Para,increment!,hist_add!,vec_hist_add!,simulate_and_get_coveage_hist,plot_readcoverage_simulation
 
 using OffsetArrays
 using ProgressMeter
