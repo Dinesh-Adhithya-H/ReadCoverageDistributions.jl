@@ -50,7 +50,7 @@ end
 
 function simulate_oceansislands(n,genome_length,read_length,no_reads)
     paras = fill(Para(genome_length = genome_length,read_length=read_length,read_number=no_reads), n);
-    res = @showprogress map(simulate_and_get_coveage_hist2, paras);
+    res = @showprogress map(simulate_and_get_coverage_hist_2, paras);
     h = reduce(vec_hist_add!, res) ./ n
     return h
 end
