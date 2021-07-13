@@ -5,7 +5,7 @@ using OffsetArrays
 using ProgressMeter
 using PyPlot
 using LsqFit
-include("HistogramReadCoverages.jl")
+#include("HistogramReadCoverages.jl")
 
 
 Base.@kwdef struct Para
