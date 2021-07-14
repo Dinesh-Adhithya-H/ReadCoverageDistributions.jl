@@ -14,7 +14,7 @@ Base.@kwdef struct Para
     read_number::Int
 end
 
-function simulate_and_get_coveage_hist_2(p::Para)
+function simulate_and_get_coverage_hist_2(p::Para)
     
     # simulation
     g = fill(zero(Int32), p.genome_length) 
@@ -69,7 +69,7 @@ function no_islands_vs_no_reads_simulation(genome_length,read_length,number_read
     for i in 1:width:number_reads
         n = 30
         paras = fill(Para(genome_length,read_length, i), n);
-        h = mapreduce(simulate_and_get_coveage_hist_2, vec_hist_add!, paras)
+        h = mapreduce(simulate_and_get_coverage_hist_2, vec_hist_add!, paras)
         h= h./ n
         push!(counter,sum(h[1]))
     end
@@ -81,7 +81,7 @@ function no_oceans_vs_no_reads_simulation(genome_length,read_length,number_reads
     for i in 1:width:number_reads
         n = 30
         paras = fill(Para(genome_length,read_length, i), n);
-        h = mapreduce(simulate_and_get_coveage_hist_2, vec_hist_add!, paras)
+        h = mapreduce(simulate_and_get_coverage_hist_2, vec_hist_add!, paras)
         h= h./ n
         push!(counter,sum(h[0]))
     end
@@ -93,7 +93,7 @@ function avg_length_oceans_vs_no_reads_simulation(genome_length,read_length,numb
     for i in 1:width:number_reads
         n = 30
         paras = fill(Para(genome_length,read_length, i), n);
-        h = mapreduce(simulate_and_get_coveage_hist_2, vec_hist_add!, paras)
+        h = mapreduce(simulate_and_get_coverage_hist_2, vec_hist_add!, paras)
         h= h./ n
         val=sum(h[0].*[i for i in 1:length(h[0])])/sum(h[0])
         push!(counter,val)
@@ -106,7 +106,7 @@ function avg_length_islands_vs_no_reads_simulation(genome_length,read_length,num
     for i in 1:width:number_reads
         n = 30
         paras = fill(Para(genome_length,read_length, i), n);
-        h = mapreduce(simulate_and_get_coveage_hist_2, vec_hist_add!, paras)
+        h = mapreduce(simulate_and_get_coverage_hist_2, vec_hist_add!, paras)
         h= h./ n
         val=sum(h[1].*[i for i in 1:length(h[1])])/sum(h[1])
         push!(counter,val)
@@ -114,7 +114,7 @@ function avg_length_islands_vs_no_reads_simulation(genome_length,read_length,num
     return counter
 end
 
-function simulate_and_get_coveage_hist_3(p::Para)
+function simulate_and_get_coverage_hist_3(p::Para)
     # simulation
     g = fill(zero(Int32), p.genome_length) 
     g1 = fill(zero(Int32), p.genome_length) 
@@ -142,9 +142,9 @@ end
 
 function no_reads_vs_no_islands(n,genome_length,read_length,read_number)
     p=Para(genome_length=genome_length,read_length=read_length,read_number=read_number)
-    a=simulate_and_get_coveage_hist_3(p);
+    a=simulate_and_get_coverage_hist_3(p);
     for j in 1:n-1
-        a=a+simulate_and_get_coveage_hist_3(p);
+        a=a+simulate_and_get_coverage_hist_3(p);
     end
     a=a./n;
     return a
