@@ -5,7 +5,7 @@ The following package carries out random simulations to understand read coverage
 To use the package use the following commands
 
 ```julia
-import Pkg
+using Pkg
 Pkg.add("ReadCoverageDistributions")
 using ReadCoverageDistributions
 ```
