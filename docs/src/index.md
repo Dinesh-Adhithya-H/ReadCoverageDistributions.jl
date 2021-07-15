@@ -20,10 +20,17 @@ Instead of considering regions of coverage 0,1,2,3,4,.... . we reduce the proble
 The result of the simulation along with coverage number(either 0 or 1) when passes through the function will give a plot of the histogram corresponding to that coverage.0 can be considered as ocean and 1 as islands.
 
 ### ReadCoverageDistributions.avg_length_islands_vs_no_reads_simulation()
+This function returns the average length of islands upon increase in no. of reads
 
 ### ReadCoverageDistributions.avg_length_oceans_vs_no_reads_simulation()
+This function returns the average length of oceans upon increase in no. of reads
 
 ### ReadCoverageDistributions.no_islands_vs_no_reads_simulation()
+This function returns an array of the no. of islands versus in no. of reads
+
 ### ReadCoverageDistributions.no_oceans_vs_no_reads_simulation()
+This function returns an array of the no. of oceans versus in no. of reads
+
 ### ReadCoverageDistributions.no_reads_vs_no_islands()
+Returns an histogram of no. of islands vs no. of reads.
 
