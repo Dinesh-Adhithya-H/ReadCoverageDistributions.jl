@@ -77,11 +77,3 @@ function simulate_readcoverage(n,genome_length,read_length,no_reads)
     return h
 end
 
-function plot_readcoverage_simulation(h,coverage,n=100)
-    fig, ax = subplots()
-    ax.scatter(1:length(h[coverage]),h[coverage])
-    #ax.set_xlim(0,1500)
-    #ax.set_ylim(1/n, maximum(h[coverage]))
-    title(string(coverage)*" Coverages")
-    ax.set_yscale("log")
-end
