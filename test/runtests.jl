@@ -28,3 +28,31 @@ hist1=ReadCoverageDistributions.simulate_oceansislands(n,genome_length,read_leng
 #title("Histogram")
 #legend()
 end
+
+@testset "Histogram Helpers" begin
+	# increment!
+	h = zeros(Int64, 10)
+	@test all(h .== 0) 
+
+	increment!(h, 1)
+	@test h[1] == 1
+
+	@test length(h) < 20
+	increment!(h, 20)
+	@test h[20] == 1
+	@test length(h) >= 20
+	@test h[19] == 0
+
+	# hist_add!
+	h1 = [0, 0, 1]
+	h2 = [1, 1, 0, 1, 1]
+	h = hist_add!(h1, h2)
+	@test length(h) == max(length(h1), length(h2))
+	@test all(h .== 1)
+
+	h1 = [0, 0, 1]
+	h2 = [1, 1, 0, 1, 1]
+	h = hist_add!(h2, h1)
+	@test length(h) == max(length(h1), length(h2))
+	@test all(h .== 1)
+end
