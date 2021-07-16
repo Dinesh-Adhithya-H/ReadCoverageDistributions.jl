@@ -5,6 +5,33 @@ Upon simulation of reads onto a reference genome , regions of various coverages 
 
 <img width="581" alt="Screen Shot 2020-10-20 at 10 58 39 AM" src="https://user-images.githubusercontent.com/68704516/125725854-0ad6a382-f8e3-49f4-8bad-7bd700e24092.png">
 
+
+## Installation
+
+To use the package use the following commands
+
+```julia
+using Pkg
+Pkg.add("ReadCoverageDistributions")
+using ReadCoverageDistributions
+```
+To run tests on the package use 
+
+```julia
+Pkg.test("ReadCoverageDistributions")
+```
+
+To know all functions and structures available in the package use
+
+```julia
+Pkg.names("ReadCoverageDistributions")
+```
+To read the documentation use 
+
+```julia
+?ReadCoverageDistributions
+```
+
 ## Usage
 
 ### ReadCoverageDistributions.simulate_readcoverage()
