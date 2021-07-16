@@ -45,30 +45,20 @@ no_reads=2*10^5
 
 The length of regions belonging to a particular coverage can be plotted as a histogram. By default histogram arrays for regions of coverage 0,1 and 2 can be obtained using the function. 
 
-### ReadCoverageDistributions.plot_readcoverage_simulation(hist::OffsetArrays.OffsetVector{Vector{Float64}, Vector{Vector{Float64}}} ,coverage::Int) prints a plot 
-
-The result of the simulation along with coverage number when passes through the function will give a plot of the histogram corresponding to that coverage.
 
 ```julia
 hist1=ReadCoverageDistributions.simulate_readcoverage(n,genome_length,read_length,no_reads)
-ReadCoverageDistributions.plot_readcoverage_simulation(hist1,0)
-```
-![image](https://user-images.githubusercontent.com/68704516/125935311-79cc2705-27f8-4ffa-9b2d-7cccffecc716.png)
 
+```
 
 
 ### ReadCoverageDistributions.simulate_oceansislands(n::Int,genome_lengthn::Int,read_lengthn::Int,no_readsn::Int) returns OffsetArrays.OffsetVector{Vector{Float64}, Vector{Vector{Float64}}}
 
 Instead of considering regions of coverage 0,1,2,3,4,.... . we reduce the problem to oceans(regions with no reads ie. zero coverages) and islands(regions with reads obove ie.non- zero coverages). The function returns histogram for regions of coverage 0 and non-zero.
 
-### ReadCoverageDistributions.plot_oceansislands_simulation(hist::OffsetArrays.OffsetVector{Vector{Float64}, Vector{Vector{Float64}}},coverage::Int) prints a plot 
-
-The result of the simulation along with coverage number(either 0 or 1) when passes through the function will give a plot of the histogram corresponding to that coverage.0 can be considered as ocean and 1 as islands.
-
 
 ```julia
 hist1=ReadCoverageDistributions.simulate_oceansislands(n,genome_length,read_length,no_reads)
-plot_oceansislands_simulation(hist1,1)
 ```
 
 
