@@ -45,7 +45,7 @@ function vec_hist_add!(hs1, hs2)
     map(hist_add!, hs1, hs2)
 end
 
-function simulate_and_get_coverage_hist(p::Para)
+function genome_simulation(p::Para)
     # simulation
     g = fill(zero(Int32), p.genome_length) 
     for i in 1:p.read_number
@@ -53,7 +53,10 @@ function simulate_and_get_coverage_hist(p::Para)
         g[pos] += 1
         g[pos + p.read_length] -= 1
     end
-#     @show g
+    return g
+end
+    
+function get_coverage_hist(g)
     max_coverage_for_hist = 2
     hists = OffsetArray(map(x->Int[], 1:max_coverage_for_hist+1), 0:max_coverage_for_hist)
     # compute coverages
@@ -72,7 +75,8 @@ end
 
 function simulate_readcoverage(n,genome_length,read_length,no_reads)
     paras = fill(Para(genome_length = genome_length,read_length=read_length,read_number=no_reads), n);
-    res = @showprogress map(simulate_and_get_coverage_hist, paras);
+    res1= map(genome_simulation, paras)
+    res = @showprogress map(get_coverage_hist , res1);
     h = reduce(vec_hist_add!, res) ./ n
     return h
 end
