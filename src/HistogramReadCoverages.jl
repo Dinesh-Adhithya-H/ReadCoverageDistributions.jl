@@ -55,16 +55,15 @@ function genome_simulation(p::Para)
     end
     return g
 end
-    
-function get_coverage_hist(g)
+
+function get_coverage_hist(g,genome_length)
     max_coverage_for_hist = 2
     hists = OffsetArray(map(x->Int[], 1:max_coverage_for_hist+1), 0:max_coverage_for_hist)
     # compute coverages
     g0 = 0 + g[1]
     p0 = 1
-    for pos in 2:p.genome_length
+    for pos in 2:genome_length
         if g[pos] != 0
-#             @show (g0, pos - p0)
             g0 <= max_coverage_for_hist && increment!(hists[g0], pos - p0)
             g0 += g[pos]
             p0 = pos
@@ -75,9 +74,8 @@ end
 
 function simulate_readcoverage(n,genome_length,read_length,no_reads)
     paras = fill(Para(genome_length = genome_length,read_length=read_length,read_number=no_reads), n);
-    res1= map(genome_simulation, paras)
-    res = @showprogress map(get_coverage_hist , res1);
+    res1= @showprogress map(genome_simulation,paras)
+    res = @showprogress map(get_coverage_hist, res1,genome_length);
     h = reduce(vec_hist_add!, res) ./ n
     return h
 end
-
