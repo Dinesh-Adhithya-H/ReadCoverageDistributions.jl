@@ -1,6 +1,6 @@
 module ReadCoverageDistributions
-#njdkd vd c 
 
+include("IslandIterator.jl")
 include("HistogramReadCoverages.jl")
 include("OceanIslandsDistributions.jl")
 
