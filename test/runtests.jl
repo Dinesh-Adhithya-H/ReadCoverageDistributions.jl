@@ -68,3 +68,38 @@ end
     @test vec_hist_add!([[1.0,3.0]],[[2.0,4.0]])==[[3.0, 7.0]]
     @test vec_hist_add!([[1.0,3.0]],[[2.0,4.0,5.0]])==[[3.0, 7.0, 5.0]]
 end
+
+@testset "IslandIterator discrete version" begin
+    starts = [3, 5, 9, 40]
+    length_read = 3
+    data=[]
+    for l in IslandIterator(starts,length_read)
+    	push!(data,l)
+    end
+    @test data == [(2, 5), (1, 3), (1, 3)]
+
+    length_read = 5
+    data=[]
+    for l in IslandIterator(starts,length_read)
+    	push!(data,l)
+    end
+    @test data == [(3, 11), (1, 5)]
+end
+
+@testset "IslandIterator continious version" begin
+    starts = [3.0, 5.0, 9.0, 40.0] 
+    length_read = 3.0
+    data=[]
+    for l in IslandIterator(starts,length_read)
+    	push!(data,l)
+    end
+    @test data==[(2, 5.0), (1, 3.0), (1, 3.0)] 
+
+    starts = [3.0, 5.0, 9.0, 40.0] .+ 0.5
+    length_read = 3.0
+    data=[]
+    for l in IslandIterator(starts,length_read)
+    	push!(data,l)
+    end
+    @test data==[(2, 5.0), (1, 3.0), (1, 3.0)] 
+end
