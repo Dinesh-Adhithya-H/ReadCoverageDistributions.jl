@@ -26,3 +26,5 @@ function Base.iterate(iter::IslandIterator, state = nothing)
     
     return ((no_reads,iter.read_length+iter.read_start_pos[pos]-iter.read_start_pos[pos-no_reads+1]), IslandIteratorState(pos + 1))
 end
+
+Base.IteratorSize(::Type{IslandIterator}) = Base.SizeUnknown()
