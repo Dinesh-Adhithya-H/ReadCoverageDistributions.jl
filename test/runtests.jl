@@ -105,6 +105,7 @@ end
     length_read = 2.0
     @test collect(IslandIterator(starts, length_read)) == 
         [(1, 2.0), (1, 2.0), (1, 2.0), (1, 2.0)] 
+end
 	
 @testset "Merge_sort" begin
     s = 1:0.000001:10000000
@@ -113,5 +114,4 @@ end
     y = sort(rand(s, L))
     @test length(merge_sorted_arrays(x,y)) == length(x) + length(y)
     @test merge_sorted_arrays(x,y)  == sort(vcat(x,y))
-
-end    
+end
