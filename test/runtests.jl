@@ -114,4 +114,11 @@ end
     y = sort(rand(s, L))
     @test length(merge_sorted_arrays(x,y)) == length(x) + length(y)
     @test merge_sorted_arrays(x,y)  == sort(vcat(x,y))
+
+    s = 1:10
+    L = 10
+    x = sort(rand(s, L))
+    y = sort(rand(s, 2*L))
+    @test length(merge_sorted_arrays(x,y)) == length(x) + length(y)
+    @test merge_sorted_arrays(x,y)  == sort(vcat(x,y))
 end
