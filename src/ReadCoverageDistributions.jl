@@ -4,6 +4,7 @@ include("IslandIterator.jl")
 include("HistogramReadCoverages.jl")
 include("OceanIslandsDistributions.jl")
 include("merge_sort.jl")
+include("count_islands_and_append_to_array.jl")
 
 export simulate_and_get_coverage_hist_2,
 	simulate_oceansislands,
