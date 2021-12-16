@@ -122,3 +122,13 @@ end
     @test length(merge_sorted_arrays(x,y)) == length(x) + length(y)
     @test merge_sorted_arrays(x,y)  == sort(vcat(x,y))
 end
+
+@testset "count_islands_and_append_to_array" begin
+    read_locations=[0.7938454015695862, 1.2664405566742531, 1.984966354304496, 4.445497047524059, 5.3558595394406705, 5.723246025280289, 6.961645696749663, 7.5597158849959945, 9.110791441702704, 9.184417263215249]
+    res=count_islands_and_append_to_array!(10,read_locations,max_no_of_reads=100,read_length=1);
+    sum=0
+    for i in res
+    	sum+=i[5]
+    end
+    @test sum==7.140565940250017		
+end
